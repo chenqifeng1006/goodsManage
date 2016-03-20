@@ -1,0 +1,365 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: #E5E5C8;
+}
+
+ul, li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none; 
+	color:rgb(52, 120, 226);
+}
+
+a.button{
+	border:1px solid #ccc;
+	background: #e5e5e5;
+	border-radius: 4px;
+	padding: 7px 14px;
+	color: #337ab7;
+  	text-decoration: none;
+  	box-sizing: border-box;
+  	cursor: auto;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+}
+input[type="text"], input[type="password"] {
+    height: 20px;
+    border: solid 1px #f3d67e;
+    color: #333;
+    border-radius: 5px;
+    padding: 3px;
+    line-height: 22px;
+    width: 180px;
+}
+
+input[type="button"] ,button{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #555;
+    color: #555;
+    padding: 5px 20px;
+    background: #FAFAFA url('../../img/button_bg.gif') repeat-x left bottom;
+}
+
+.admin_top{
+    height: 60px;
+    width: 100%;
+    background-color: #00a2c9;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-top:25px;
+    color: #fff;
+}
+.login{
+    -webkit-box-shadow: 0 0 20px black;
+    margin: 150px auto 0 auto;
+    height: 300px;
+    width: 400px;
+    border: 1px solid darkgray;
+}
+.login_top{
+    color: #4B6EA9;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 35px;
+    line-height: 20px;
+    text-align: center;
+}
+.submit{
+    float: right;
+    margin-right: 45px;
+    margin-top: 20px;
+}
+
+
+/* 管理平台顶部 */
+.manage_top{
+	padding-left: 25px;
+	background-color: #04242C;
+	line-height: 40px;
+	height:42px;
+	color:#fff;
+	font-size:20px;
+}
+
+.manage_top span{
+	color: rgb(174, 170, 170);
+	line-height: 42px;
+	cursor:pointer;
+	float:right;
+	margin-right:10px;
+	font-size:10px;
+}
+
+
+/* 管理平台左侧*/
+.manage_left{
+	float:left;
+	width: 15%;
+	background: #fff;
+	min-height:650px;
+}
+
+.manage_left li{
+	color:#4F3E3E;
+	text-align: center;
+	border-bottom: solid 1px #e5e5e5;
+	font-weight: normal;
+	height: 45px;
+	line-height: 45px;
+	cursor: pointer;
+}
+.manage_left li.current{
+	background-color: #E5E5C8;
+}
+
+.manage_right{
+	float:left;
+	width: 85%;
+}
+.manage_right .content{
+	margin:5px auto;
+	width:99%;
+	min-height:644px;
+	background-color: #fff;
+}
+
+.manage_right .content .manageSearch{
+	padding-top:20px;
+	height:40px;
+	margin:0 auto;
+	width:96%;
+	margin-bottom:5px;
+}
+
+.manage_right .content .manageSearch div{
+	display: block;
+	float: left;
+}
+.manage_right .content .manageSearch span{
+	display: block;
+	float: left;
+	margin-top: 3px;
+	width: 80px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.manage_right .content .manageButton{
+	/* border-bottom:1px solid #ccc; */
+	height:40px;
+	margin:0 auto;
+	width:100%;
+	/* margin-bottom:5px; */
+}
+.manage_right .content .manageButton a{
+	margin-top: -5px;
+	margin-right:10px;
+	display: block;
+	float: right;
+}
+
+
+.manage_right .content .manageList{
+	margin:0 auto;
+	width:100%;
+}
+
+.manage_right .content .formPage{
+	padding-top: 150px;
+	width:300px;
+	margin:0 auto;
+}
+
+
+.manage_right .content .formPage .submit{
+	margin-top: 10px;
+	float: right;
+}
+
+.manage_right .content .formTitle{
+	border-width: 0 0 1px 0;
+	border: 1px solid #000;
+	width:100%;
+	height:50px;
+	line-height: 50px;	
+}
+
+.manage_right .content .formTitle span{
+	margin-left:20px;
+	
+}
+
+.manageList table{
+	margin:0 auto;
+	width: 99%;
+	height:auto;
+	margin: 0;
+	max-width: none;
+	border-collapse: separate;
+	border-spacing: 0;
+	empty-cells: show;
+	border-width: 0;
+	outline: 0;
+}
+.manageList table thead{
+	background-color: #f9f9f9;
+	background-clip: border-box;
+	box-sizing: content-box;
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;
+	border-bottom:1px solid black;
+}
+.manageList table th{
+	border-style: solid;
+	border-left-width: 0;
+	border-width: 0 0 1px 1px;
+	color: #000;
+	line-height: 20px;
+	padding: .429em .6em .571em .6em;
+	vertical-align: bottom;
+	text-align: left;
+	font-weight: normal;
+	white-space: nowrap;
+	text-overflow: ellipsis;	
+	color: #a8a8a8;
+	background-color: rgb(63, 81, 181);
+}
+.manageList table td{
+	font-size:14px;
+	box-sizing: content-box;
+	background-clip: border-box;
+	overflow: hidden;
+	line-height: 1.6em;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	border-width: 0 0 0 1px;
+	padding: .929em .6em;
+	border-color: #e5e5e5;
+	border-bottom-width: 1px;
+	border-style: solid;
+	border-top: 0;
+	border-left-width: 0;
+	text-align: left;
+}
+
+.manageList .emptyData{
+	line-height: 45px;
+	height:50px;
+	width:200px;
+	margin: 0 auto;
+	color:rgb(79, 18, 18);
+}
+
+.manageList .listFooter{
+	height:30px;
+	padding: 2px 0 0 1px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	width:100%;
+	background: #efefef;
+	border-top: 1px solid #ccc;
+	position: relative;
+}
+
+.manageList .listFooter .info{
+	float: right;
+	padding-right: 5px;
+	padding-top: 8px!important;
+	font-size: 12px;
+}
+.manageList .listFooter span{
+	line-height:22px;
+	margin:2px;
+	float: left;
+	font-size: 12px;
+}
+.manageList .listFooter strong{
+	margin: 0 5px;
+	color: gray;
+}
+.manageList .listFooter .cut{
+	float: left;
+	height: 24px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #fff;
+	margin: -1px 1px 1px 2px;
+}
+.manageList .listFooter a{
+	border-color: #c5c5c5;
+	color: #2e2e2e;
+	border-style: solid;
+	border-width: 1px;
+	float: left;
+	margin: 0 1px;
+	padding: 0 3px;
+	height: 24px;
+	line-height: 22px;
+	cursor: pointer;
+	outline: 0;
+	text-decoration: none;
+}
+.manageList .listFooter a:active{
+	background-image: none,linear-gradient(to bottom,#cbc5c2 0,#a99f9a 100%);
+	color: #2e2e2e;
+	background-color: #a99f9a;
+	border-color: #a99f9a;
+	background: 0;
+}
+.manageList .listFooter a:hover{
+	background-image: none,linear-gradient(to bottom,#cbc5c2 0,#a99f9a 100%);
+	color: #2e2e2e;
+	background-color: #a99f9a;
+	border-color: #a99f9a;
+	background: 0;
+}
+.manageList .listFooter a .next{
+	vertical-align: top;
+	margin-top: 3px;
+	background-image: url('../../img/sprite.png');
+	border-color: transparent;
+	opacity: .8;
+	background-position: 0 -16px;
+	background-color: transparent;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -3333px;
+	text-align: center;
+}
+.manageList .listFooter a .prev{
+	vertical-align: top;
+	margin-top: 3px;
+	background-image: url('../../img/sprite.png');
+	border-color: transparent;
+	opacity: .8;
+	background-position: 0 -48px;
+	background-color: transparent;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -3333px;
+	text-align: center;
+}
+
+

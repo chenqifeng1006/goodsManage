@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <constant name="struts.i18n.encoding" value="gbk"/>
+     <constant name="struts.devMode" value="true" />
+     <!--Struts2中Action对象的创建交给spring完成-->
+     <constant name="struts.objectFactory" value="spring" />   
+       
+	 
+	  <package name="userLogin" namespace="/userLogin" extends="struts-default">
+	        <action name="userLogin_*" class="userLoginAction" method="{1}">
+	        	<result name="main_view">/ec/main.jsp</result>
+	        	<result name="error">/error.jsp</result>
+	        	<result name="login_view">/ec/main.jsp</result> 	          
+	        </action>  
+	 </package>
+	 
+	 <package name="managerLogin" namespace="/managerLogin" extends="struts-default">
+	        <action name="managerLogin_*" class="managerLoginAction" method="{1}">
+	        	<result name="main_view">/manage/main.jsp</result>
+	        	<result name="error">/error.jsp</result>
+	        	<result name="login_view">/managerLogin.jsp</result> 
+	          
+	        </action>  
+	 </package>
+	 
+	 
+	  <package name="book" namespace="/book" extends="struts-default">
+           <action name="book_*" class="bookAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/bookList.jsp</result>
+             <result name="user_query_view">/ec/bookList.jsp</result>
+             <result name="modify_view">/manage/bookUpdate.jsp</result>
+           </action>
+         </package>
+         
+         
+       <package name="manager" namespace="/manager" extends="struts-default">
+           <action name="manager_*" class="managerAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/managerList.jsp</result>
+             <result name="modify_view">/manage/managerUpdate.jsp</result>
+           </action>
+         </package>    
+         
+	 	  <package name="toy" namespace="/toy" extends="struts-default">
+           <action name="toy_*" class="toyAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/toyList.jsp</result>
+             <result name="modify_view">/manage/toyUpdate.jsp</result>
+             <result name="user_query_view">/ec/toyList.jsp</result>
+             
+           </action>
+         </package>
+         
+        <package name="cloth" namespace="/cloth" extends="struts-default">
+           <action name="cloth_*" class="clothAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/clothList.jsp</result>
+             <result name="modify_view">/manage/clothUpdate.jsp</result>
+             <result name="user_query_view">/ec/clothList.jsp</result>
+             
+           </action>
+         </package> 
+         
+	      <package name="life" namespace="/life" extends="struts-default">
+           <action name="life_*" class="lifeAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/lifeList.jsp</result>
+             <result name="modify_view">/manage/lifeUpdate.jsp</result>
+             <result name="user_query_view">/ec/lifeList.jsp</result>
+            
+           </action>
+         </package> 
+         
+        <package name="travel" extends="struts-default">
+           <action name="travel_*" class="travelAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/travelList.jsp</result>
+             <result name="modify_view">/manage/travelUpdate.jsp</result>
+             <result name="user_query_view">/ec/travelList.jsp</result>
+             
+           </action>
+         </package> 
+         
+         
+        <package name="order" namespace="/order" extends="struts-default">
+           <action name="order_*" class="orderAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/orderList.jsp</result>
+             <result name="myorder_view">/ec/myOrder.jsp</result>      
+             <result name="order_detail">/ec/orderDetail.jsp</result>         
+             <result name="order_manageDetail">/manage/orderDetail.jsp</result>         
+                
+           </action>
+         </package> 
+         
+        <package name="car" namespace="/car" extends="struts-default">
+           <action name="car_*" class="carAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/orderList.jsp</result>
+           </action>
+         </package> 
+	 
+	     <package name="shoppingCar" namespace="/shoppingCar" extends="struts-default">
+           <action name="shoppingCar_*" class="shoppingCarAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/orderList.jsp</result>
+             <result name="myshoppingcar_view">/ec/shoppingCarList.jsp</result>
+             
+           </action>
+         </package> 
+         <package name="photo" namespace="/photo" extends="struts-default">
+           <action name="photo_*" class="photoAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="user_query_view">/ec/photoList.jsp</result>
+             
+           </action>
+         </package> 
+         
+         <package name="filePicture" namespace="/filePicture" extends="struts-default">
+           <action name="filePicture_*" class="filePictureAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="user_query_view">/ec/fileList.jsp</result>
+             
+           </action>
+         </package> 
+	 
+</struts>

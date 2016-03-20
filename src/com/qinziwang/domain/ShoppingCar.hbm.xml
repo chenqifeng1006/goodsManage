@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.qinziwang.domain">
+
+	<class name="ShoppingCar" table="shoppingcar">
+		<id name="id" type="int" length="20">
+			<generator class="identity"/>
+		</id>
+		
+		 <property
+			name="username"
+			column="username" 
+			type="string" 
+			length="20"
+		/>
+			 <property
+			name="commodityid"
+			column="commodityid" 
+			type="int" 
+			length="20"
+		/>
+			 <property
+			name="type"
+			column="type" 
+			type="string" 
+			length="50"
+		/>
+			 <property
+			name="price"
+			column="price" 
+			type="double" 
+			length="50"
+		/>	
+		 <property
+			name="count"
+			column="count" 
+			type="int" 
+			length="50"
+		/>	
+		 <property
+			name="status"
+			column="status" 
+			type="string" 
+			length="50"
+		/>			
+			 <property
+			name="creationtime"
+			column="creationtime" 
+			type="date" 
+			length="50"
+		/>	
+	</class>
+	
+</hibernate-mapping>
