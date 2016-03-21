@@ -1,4 +1,4 @@
-package com.qinziwang.action;
+package com.goodsmanage.action;
 
  
 
@@ -6,10 +6,10 @@ package com.qinziwang.action;
 
  
 
+import com.goodsmanage.dao.UserDAO;
+import com.goodsmanage.domain.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.qinziwang.dao.UserDAO;
-import com.qinziwang.domain.User;
 
 public class UserLoginAction extends ActionSupport {
  
@@ -40,7 +40,7 @@ public class UserLoginAction extends ActionSupport {
 		return "main_view";
 	}
 	
-	
+/*	
 	public String regist() {
 
 		  ActionContext ctx = ActionContext.getContext();
@@ -48,7 +48,7 @@ public class UserLoginAction extends ActionSupport {
 
 	        try {
 	        	userDAO.addUser(user);
-	            ctx.put("message",  java.net.URLEncoder.encode("注册成功!"));
+	            ctx.put("mmanageessage",  java.net.URLEncoder.encode("注册成功!"));
 	            return "login_view";
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -56,6 +56,6 @@ public class UserLoginAction extends ActionSupport {
 	            return "error";
 	        }
 	}
-	
+	*/
 
 }

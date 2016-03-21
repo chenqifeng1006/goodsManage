@@ -2,10 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.qinziwang.domain">
+<hibernate-mapping package="com.goodsmanage.domain">
 
 	<class name="User" table="user">
-		<id name="username" type="string" length="20">
+		<id name=userno type="string" length="16">
 			<generator class="assigned"/>
 		</id>
 		
@@ -13,13 +13,19 @@
 			name="password"
 			column="password" 
 			type="string" 
+			length="16"
+		/>
+		 <property
+			name="username"
+			column="username" 
+			type="string" 
 			length="20"
 		/>
 			 <property
-			name="phone"
+			name="telephone"
 			column="phone" 
 			type="string" 
-			length="18"
+			length="11"
 		/>
 			 <property
 			name="address"

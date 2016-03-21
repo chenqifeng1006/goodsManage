@@ -2,24 +2,29 @@
 <!DOCTYPE hibernate-mapping PUBLIC 
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.qinziwang.domain">
+<hibernate-mapping package="com.goodsmanage.domain">
 
-	<class name="Manager" table="manager">
-		<id name="username" type="string" length="20">
+	<class name="Admin" table="admin">
+		<id name="loginid" type="string" length="16">
 			<generator class="assigned"/>
 		</id>
-			
+		]<property
+			name="name"
+			column="name" 
+			type="string" 
+			length="20"
+		/>
 		 <property
 			name="password"
 			column="password" 
 			type="string" 
-			length="20"
+			length="16"
 		/>
 			 <property
-			name="phone"
-			column="phone" 
+			name="telephone"
+			column="telephone" 
 			type="string" 
-			length="18"
+			length="11"
 		/>
 
 

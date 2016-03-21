@@ -1,14 +1,22 @@
-package com.qinziwang.domain;
+package com.goodsmanage.domain;
 
 public class User {
-	/*用户名*/
+	/*员工号*/
+	private String userno;
+	/*姓名*/
 	private String username;
-	/*登陆密码*/
+	/*密码*/
 	private String password;
-	/*电话号码*/
-	private String phone;
+	/*电话*/
+	private String telephone;
 	/*地址*/
 	private String address;
+	public String getUserno() {
+		return userno;
+	}
+	public void setUserno(String userno) {
+		this.userno = userno;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -21,11 +29,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPhone() {
-		return phone;
+	public String getTelephone() {
+		return telephone;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 	public String getAddress() {
 		return address;
@@ -33,7 +41,7 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 	
 	
 }

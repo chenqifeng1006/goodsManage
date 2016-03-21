@@ -1,4 +1,4 @@
-package com.qinziwang.action;
+package com.goodsmanage.action;
 
  
 
@@ -6,24 +6,24 @@ package com.qinziwang.action;
 
  
 
+import com.goodsmanage.dao.AdminDAO;
+import com.goodsmanage.domain.Admin;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.qinziwang.dao.ManagerDAO;
-import com.qinziwang.domain.Manager;
 
-public class ManagerLoginAction extends ActionSupport {
+public class AdminLoginAction extends ActionSupport {
  
 	
-	private Manager manager;
+	private Admin admin;
 
 	
 
 
-	public Manager getManager() {
-		return manager;
+	public Admin getAdmin() {
+		return admin;
 	}
-	public void setManager(Manager manager) {
-		this.manager = manager;
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
 	}
 	/*直接跳转到登陆界面*/
 	public String view() {
@@ -38,13 +38,13 @@ public class ManagerLoginAction extends ActionSupport {
 	
 	/* 验证用户登录 */
 	public String CheckLogin() {
-		ManagerDAO managerDAO = new ManagerDAO();
+		AdminDAO managerDAO = new AdminDAO();
 		ActionContext ctx = ActionContext.getContext();
-		if (!managerDAO.checkLogin(manager)) {
+		if (!managerDAO.checkLogin(admin)) {
 			ctx.put("error",  java.net.URLEncoder.encode(managerDAO.getErrMessage()));
 			return "error";
 		}
-		ctx.getSession().put("username", manager.getUsername());
+		ctx.getSession().put("name", admin.getName());
 		return "main_view";
 	}
 	
