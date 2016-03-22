@@ -8,6 +8,8 @@ public class Admin {
 	
 	private String password;
 	
+	private String oldPassword;
+	
 	private String telephone;
 
 	public String getLoginid() {
@@ -40,6 +42,14 @@ public class Admin {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public String getOldPassword() {
+		return oldPassword;
+	}
+
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
 	}
 
    

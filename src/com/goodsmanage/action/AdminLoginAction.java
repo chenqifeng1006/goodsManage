@@ -70,6 +70,24 @@ public class AdminLoginAction extends ActionSupport {
 	}
 	
 	
+	public String updatePassword() {
+		AdminDAO adminDAO = new AdminDAO();
+		ActionContext ctx = ActionContext.getContext();
+		try {
+			adminDAO.changePassword(admin.getLoginid(),admin.getOldPassword(), admin.getPassword());
+		} catch (Exception e) {
+			ctx.put("error",  java.net.URLEncoder.encode(adminDAO.getErrMessage()));
+			e.printStackTrace();
+		}
+		
+		ctx.getSession().put("name", admin.getName());
+		ctx.getSession().put("loginid", admin.getLoginid());
+		ctx.getSession().put("telephone", admin.getTelephone());
+        
+		return "";
+	}
+	
+	
 
 	
 

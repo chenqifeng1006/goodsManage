@@ -9,13 +9,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head lang="en">
     <meta charset="GB2312">
-    <title>萌萌哒亲子网</title>
+    <title>启化公司物资管理系统</title>
     <link rel="stylesheet" type="text/css" href="./css/ec/main.css">
 </head>
 <body>
 <div class="w100">
     <div class="logo">
-        萌萌哒亲子网
+        启化公司物资管理系统
         <b></b>
     </div>
     <div class="login-wrap">

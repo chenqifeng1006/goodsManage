@@ -32,8 +32,10 @@
         <property name="hbm2ddl.auto">update</property>        
           <mapping resource="com/goodsmanage/domain/User.hbm.xml" />
         <mapping resource="com/goodsmanage/domain/Admin.hbm.xml" />
-    
-        
+     <mapping resource="com/goodsmanage/domain/BorrowGoods.hbm.xml" />
+         <mapping resource="com/goodsmanage/domain/BorrowGoodsRecord.hbm.xml" />
+          <mapping resource="com/goodsmanage/domain/GiveGoods.hbm.xml" />
+           <mapping resource="com/goodsmanage/domain/GiveGoodsRecord.hbm.xml" />
      </session-factory>
 
 </hibernate-configuration>

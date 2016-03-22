@@ -8,13 +8,13 @@
 %>
 <head>
 <meta charset="GB2312">
-<title>亲子网</title>
+<title>物资管理系统</title>
 <link rel="stylesheet" type="text/css" href="../css/ec/main.css">
 </head>
 <body>
 <div class="w100">
     <div class="logo">
-        萌萌哒亲子网
+                   启化公司物资管理系统
         <!-- <b></b> -->
     </div>
     <div class="login-wrap">
@@ -25,7 +25,7 @@
             <div class="login-form" style="top: 5px;">
                 <div class="login-box">
                     <div class="mt">
-                        <h1>亲子网</h1>
+                        <h1>物资管理系统</h1>
                         <div class="extra-r">
                             <!-- <div class="regist-link"><a href="./jsp/ec/regist.jsp" ><b></b>立即注册</a></div> -->
                         </div>

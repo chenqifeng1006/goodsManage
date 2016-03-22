@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.goodsmanage.domain">
+
+	<class name="GiveGoodsRecord" table="give_goods_record">
+		<id name="id" type="int" length="16">
+			<generator class="identity"/>
+		</id>
+		<property
+			name="goodsid"
+			column="goodsid" 
+			type="int" 
+			length="20"
+		/>
+		 <property
+			name="userno"
+			column="userno" 
+			type="string" 
+			length="16"
+		/>
+			 <property
+			name="username"
+			column="username" 
+			type="string" 
+			length="10"
+		/>
+       <property
+			name="give_time"
+			column="give_time" 
+			type="date" 
+			length="20"
+		/>
+
+	</class>
+	
+</hibernate-mapping>

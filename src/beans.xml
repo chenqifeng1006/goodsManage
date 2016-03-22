@@ -16,6 +16,13 @@
   
     <bean id="adminLoginAction" class="com.goodsmanage.action.AdminLoginAction" scope="prototype"></bean>
     
+    <bean id="borrowGoodsAction" class="com.goodsmanage.action.BorrowGoodsAction" scope="prototype"></bean>
+    
+    <bean id="giveGoodsAction" class="com.goodsmanage.action.GiveGoodsAction" scope="prototype"></bean>
+    
+    <bean id="borrowGoodsRecordAction" class="com.goodsmanage.action.BorrowGoodsRecordAction" scope="prototype"></bean>
+    
+    <bean id="giveGoodsRecordAction" class="com.goodsmanage.action.GiveGoodsRecordAction" scope="prototype"></bean>
 
 	
 	  
