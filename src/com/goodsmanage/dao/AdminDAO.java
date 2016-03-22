@@ -38,12 +38,12 @@ public class AdminDAO {
 	}
 	
 
-	public static Admin getManager(int id) {
+	public static Admin getManager(String loginid) {
 		Session s = null;
 		Admin manager = null;
 		try {
 			s = HibernateUtil.getSession();
-			manager = (Admin)s.get(Admin.class, id); 
+			manager = (Admin)s.get(Admin.class, loginid); 
 		} finally {
 			HibernateUtil.closeSession();
 		} 

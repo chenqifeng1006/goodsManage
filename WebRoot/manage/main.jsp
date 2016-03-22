@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="GB2312">
-    <title>萌萌哒亲子网</title>
+    <title>启化公司物资管理系统</title>
 	<link rel="stylesheet" type="text/css" href="../css/manage/main.css">
 	<script type="text/javascript" src="../javascript/jquery.js"></script>
 </head>

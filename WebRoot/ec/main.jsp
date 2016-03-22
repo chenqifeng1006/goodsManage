@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="GB2312">
-<title>亲子网</title>
+<title>物资管理系统</title>
 <link rel="stylesheet" type="text/css" href="../css/ec/main.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 		<%@ include  file="./top.jsp"%>
 	    <%@ include  file="./menus.jsp"%>
 	    <div style="font-size:40px;font-weight: bold;color: red;margin:100px auto;  width: 450px;text-align: center;">
-	    	欢迎使用萌萌哒亲子网
+	    	欢迎使用启化公司物资管理系统
 	    </div>
     </div>
 </div>

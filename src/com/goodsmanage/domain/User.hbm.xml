@@ -4,28 +4,27 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.goodsmanage.domain">
 
-	<class name="User" table="user">
-		<id name=userno type="string" length="16">
+<class name="User" table="user">
+		<id name="userno" type="string" length="20">
 			<generator class="assigned"/>
 		</id>
-		
-		 <property
-			name="password"
-			column="password" 
-			type="string" 
-			length="16"
-		/>
 		 <property
 			name="username"
 			column="username" 
 			type="string" 
 			length="20"
 		/>
+		 <property
+			name="password"
+			column="password" 
+			type="string" 
+			length="20"
+		/>
 			 <property
 			name="telephone"
-			column="phone" 
+			column="telephone" 
 			type="string" 
-			length="11"
+			length="18"
 		/>
 			 <property
 			name="address"

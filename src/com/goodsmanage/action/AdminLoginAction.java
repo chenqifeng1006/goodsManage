@@ -38,14 +38,35 @@ public class AdminLoginAction extends ActionSupport {
 	
 	/* 验证用户登录 */
 	public String CheckLogin() {
-		AdminDAO managerDAO = new AdminDAO();
+		AdminDAO adminDAO = new AdminDAO();
 		ActionContext ctx = ActionContext.getContext();
-		if (!managerDAO.checkLogin(admin)) {
-			ctx.put("error",  java.net.URLEncoder.encode(managerDAO.getErrMessage()));
+		if (!adminDAO.checkLogin(admin)) {
+			ctx.put("error",  java.net.URLEncoder.encode(adminDAO.getErrMessage()));
 			return "error";
 		}
+		admin=adminDAO.getManager(admin.getLoginid());
 		ctx.getSession().put("name", admin.getName());
+		ctx.getSession().put("loginid", admin.getLoginid());
+		ctx.getSession().put("telephone", admin.getTelephone());
+        
 		return "main_view";
+	}
+	
+	public String update() {
+		AdminDAO adminDAO = new AdminDAO();
+		ActionContext ctx = ActionContext.getContext();
+		try {
+			adminDAO.update(admin);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ctx.getSession().put("name", admin.getName());
+		ctx.getSession().put("loginid", admin.getLoginid());
+		ctx.getSession().put("telephone", admin.getTelephone());
+        
+		return "";
 	}
 	
 	

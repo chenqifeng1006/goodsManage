@@ -8,7 +8,7 @@
 		<id name="loginid" type="string" length="16">
 			<generator class="assigned"/>
 		</id>
-		]<property
+		<property
 			name="name"
 			column="name" 
 			type="string" 

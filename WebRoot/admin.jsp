@@ -9,31 +9,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
     <meta charset="GB2312">
-    <title>萌萌哒亲子网</title>
+    <title>启化公司物资管理系统</title>
 <link rel="stylesheet" type="text/css" href="./css/manage/main.css">
 <link rel="stylesheet" type="text/css" href="./css/manage/admin.css">
 <script type="text/javascript" src="./javascript/jquery.js"></script>
 </head>
 <div class="admin_top">
-    萌萌哒亲子网管理中心
+    启化公司物资管理系统
 </div>
 <div class="login">
 <div class="login_top">
     请登录
 </div>
 <div>
-	<form action="<%=basePath %>managerLogin/managerLogin_CheckLogin.action" method="post">
+	<form action="<%=basePath %>adminLogin/adminLogin_CheckLogin.action" method="post">
     <table width="100%">
         <tr>
             <td width="40%" height="50px" align="center">用户名:</td>
             <td width="60%" align="left">
-                <input type="text" name="manager.username"/>
+                <input type="text" name="admin.loginid"/>
             </td>
         </tr>
         <tr>
             <td width="40%" height="50px" align="center">密码:</td>
             <td width="60%" align="left">
-                <input type="password" name="manager.password"/>
+                <input type="password" name="admin.password"/>
             </td>
         </tr>
         <tr>
