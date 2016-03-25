@@ -24,7 +24,7 @@
 	//删除数据的请求地址
 	String deleteAction = basePath + "giveGoods/giveGoods_delete.action";
 	//列表数据
-	List<GiveGoods> giveGoodsList=(List<GiveGoods>)request.getAttribute("giveGoodsList");
+	List<GiveGoods> giveGoodsList=(List<GiveGoods>)request.getAttribute("list");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

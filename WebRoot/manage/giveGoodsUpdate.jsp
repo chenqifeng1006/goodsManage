@@ -12,7 +12,7 @@
 	String type = "giveGoods";	
 	//保存的请求地址
 	String saveAction = basePath + "giveGoods/giveGoods_save.action";
-	GiveGoods giveGoods = (GiveGoods)request.getAttribute("giveGoods");
+	GiveGoods giveGoods = (GiveGoods)request.getAttribute("entity");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

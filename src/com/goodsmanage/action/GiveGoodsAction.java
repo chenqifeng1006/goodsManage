@@ -132,9 +132,9 @@ public class GiveGoodsAction extends ActionSupport {
 	    /*管理员查询信息*/
 	    public String query() {
 	        if(currentPage == 0) currentPage = 1;
-	        List<GiveGoods> list = dao.query(currentPage,10,entity.getGoodsname());
+	        List<GiveGoods> list = dao.query(currentPage,5,"");
 	        /*计算总的页数和总的记录数*/
-	        dao.CalculateTotalPageAndRecordNumber(entity.getGoodsname());
+	        dao.CalculateTotalPageAndRecordNumber("");
 	        /*获取到总的页码数目*/
 	        totalPage = dao.getTotalPage();
 	        /*当前查询条件下总记录数*/

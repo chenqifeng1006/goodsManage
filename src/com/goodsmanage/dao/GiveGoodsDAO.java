@@ -19,7 +19,7 @@ import com.goodsmanage.utils.HibernateUtil;
 public class GiveGoodsDAO {
 
     /*每页显示记录数目*/
-    private final int PAGE_SIZE = 6;
+    private final int PAGE_SIZE = 5;
 
     /*保存查询后总的页数*/
     private int totalPage;
@@ -62,7 +62,7 @@ public class GiveGoodsDAO {
         Session s = null; 
         try {
             s = HibernateUtil.getSession();
-            String hql = "From give_goods give_goods where 1=1";
+            String hql = "From GiveGoods giveGoods where 1=1";
             if(StringUtils.isNotBlank(goodsname)){
             	hql+="and goodsname="+goodsname;
             }
@@ -87,7 +87,7 @@ public class GiveGoodsDAO {
         Session s = null;
         try {
             s = HibernateUtil.getSession();
-            String hql = "From give_goods give_goods where 1=1";
+            String hql = "From GiveGoods giveGoods where 1=1";
             if(StringUtils.isNotBlank(goodsname)){
             	hql+="and goodsname="+goodsname;
             }
