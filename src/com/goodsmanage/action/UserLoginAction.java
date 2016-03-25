@@ -37,6 +37,7 @@ public class UserLoginAction extends ActionSupport {
 			ctx.put("error",  java.net.URLEncoder.encode(userDAO.getErrMessage()));
 			return "error";
 		}
+		user=userDAO.getUser(user.getUserno());
 		ctx.getSession().put("userno", user.getUserno());
 		ctx.getSession().put("username", user.getUsername());
 		ctx.getSession().put("password", user.getPassword());
