@@ -32,7 +32,12 @@
 			type="date" 
 			length="20"
 		/>
-
+      <property
+			name="status"
+			column="status" 
+			type="string" 
+			length="20"
+		/>
 	</class>
 	
 </hibernate-mapping>

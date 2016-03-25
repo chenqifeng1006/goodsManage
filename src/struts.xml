@@ -13,6 +13,7 @@
 	  <package name="userLogin" namespace="/userLogin" extends="struts-default">
 	        <action name="userLogin_*" class="userLoginAction" method="{1}">
 	        	<result name="main_view">/ec/main.jsp</result>
+	        	<result name="success">/message.jsp</result>
 	        	<result name="error">/error.jsp</result>
 	        	<result name="login_view">/ec/main.jsp</result> 	          
 	        </action>  
@@ -22,6 +23,8 @@
 	        <action name="adminLogin_*" class="adminLoginAction" method="{1}">
 	        	<result name="main_view">/manage/main.jsp</result>
 	        	<result name="error">/error.jsp</result>
+	        	<result name="success">/message.jsp</result>
+	        	
 	        	<result name="login_view">/manage/managerLogin.jsp</result> 	          
 	        </action>  
 	 </package>
@@ -44,5 +47,21 @@
               <result name="user_query_view">/ec/borrowGoodsList.jsp</result>
            </action>
      </package>    
+	 
+	 
+	 	  <package name="giveGoodsRecord" namespace="/giveGoodsRecord" extends="struts-default">
+           <action name="giveGoodsRecord_*" class="giveGoodsRecordAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+           
+           </action>
+     </package>
+      <package name="borrowGoodsRecord" namespace="/borrowGoodsRecord" extends="struts-default">
+           <action name="borrowGoodsRecord_*" class="borrowGoodsRecordAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+            
+           </action>
+     </package>   
 	 
 </struts>
