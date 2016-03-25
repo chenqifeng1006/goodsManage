@@ -45,6 +45,18 @@ public class GiveGoodsRecordAction extends ActionSupport {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+    public int goodsid;
+	
+	
+	
+	
+	public int getGoodsid() {
+		return goodsid;
+	}
+	public void setGoodsid(int goodsid) {
+		this.goodsid = goodsid;
+	}
 
 	/*当前第几页*/
     private int currentPage;
@@ -87,6 +99,8 @@ public class GiveGoodsRecordAction extends ActionSupport {
         try {
            
         	GiveGoodsRecordDAO dao=new GiveGoodsRecordDAO();
+        	entity=new GiveGoodsRecord();
+        	entity.setGoodsid(goodsid);
         	entity.setStatus("申请中");
         	entity.setGive_time(new Date());
         	entity.setUserno(ctx.getSession().get("userno").toString());

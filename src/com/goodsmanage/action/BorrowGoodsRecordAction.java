@@ -43,6 +43,23 @@ public class BorrowGoodsRecordAction extends ActionSupport {
 		this.id = id;
 	}
 
+	public int goodsid;
+	
+	
+	
+	
+	public int getGoodsid() {
+		return goodsid;
+	}
+	public void setGoodsid(int goodsid) {
+		this.goodsid = goodsid;
+	}
+	public BorrowGoodsRecordDAO getDao() {
+		return dao;
+	}
+	public void setDao(BorrowGoodsRecordDAO dao) {
+		this.dao = dao;
+	}
 	/*当前第几页*/
     private int currentPage;
     public void setCurrentPage(int currentPage) {
@@ -84,6 +101,8 @@ public class BorrowGoodsRecordAction extends ActionSupport {
         try {
            
         	BorrowGoodsRecordDAO dao=new BorrowGoodsRecordDAO();
+           	entity=new BorrowGoodsRecord();
+        	entity.setGoodsid(goodsid);
         	entity.setStatus("申请中");
         	entity.setBorrow_time(new Date());
         	entity.setUserno(ctx.getSession().get("userno").toString());
