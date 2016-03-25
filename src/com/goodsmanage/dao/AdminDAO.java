@@ -120,7 +120,7 @@ public class AdminDAO {
         }
     }
 
-	public  void changePassword(String loginid, String oldPassword,String newPassword) {
+	public  boolean changePassword(String loginid, String oldPassword,String newPassword) {
 		Session s = null;
 		Transaction tx = null;
 		try {
@@ -129,19 +129,22 @@ public class AdminDAO {
 			Admin db_admin = (Admin)s.get(Admin.class, loginid);
 			if(!db_admin.getPassword().equals(oldPassword)){
 				this.errMessage = " æ…√‹¬Î¥ÌŒÛ ";
+				return false;
 			}else{
 				db_admin.setPassword(newPassword);
 				s.save(db_admin);
 				tx.commit();
+				return true;
 			}
 		
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
-			throw e;
+		     return false;
+
 		}  finally {
 			HibernateUtil.closeSession();
 		}  
-	}
 
+	}
 }
