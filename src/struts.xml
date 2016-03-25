@@ -33,6 +33,13 @@
              <result name="modify_view">/manage/giveGoodsUpdate.jsp</result>
            </action>
      </package>
-         
+      <package name="bororowGoods" namespace="/bororowGoods" extends="struts-default">
+           <action name="bororowGoods_*" class="bororowGoodsAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/bororowGoodsList.jsp</result>
+             <result name="modify_view">/manage/bororowGoodsUpdate.jsp</result>
+           </action>
+     </package>    
 	 
 </struts>
