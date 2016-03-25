@@ -76,7 +76,11 @@ public class AdminLoginAction extends ActionSupport {
 		ActionContext ctx = ActionContext.getContext();
 		admin.setLoginid(ctx.getSession().get("loginid").toString());
 		try {
-			adminDAO.changePassword(admin.getLoginid(),admin.getOldPassword(), admin.getPassword());
+			boolean bool=adminDAO.changePassword(admin.getLoginid(),admin.getOldPassword(), admin.getPassword());
+			if(bool==false){
+				ctx.put("error",  java.net.URLEncoder.encode(adminDAO.getErrMessage()));
+				return "error";
+			}
 		} catch (Exception e) {
 			ctx.put("error",  java.net.URLEncoder.encode(adminDAO.getErrMessage()));
 			e.printStackTrace();

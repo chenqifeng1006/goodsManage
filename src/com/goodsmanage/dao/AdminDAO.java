@@ -140,8 +140,8 @@ public class AdminDAO {
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
-		     return false;
 
+			throw e;
 		}  finally {
 			HibernateUtil.closeSession();
 		}  
