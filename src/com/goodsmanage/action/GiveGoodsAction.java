@@ -118,10 +118,6 @@ public class GiveGoodsAction extends ActionSupport {
 	        ActionContext ctx = ActionContext.getContext();
 	        
 	        try {
-	            String path = ServletActionContext.getServletContext().getRealPath("/img"); 
-	            /*处理图片上传*/
-	            String photoFileName = ""; 
-	       	 	
 	            GiveGoodsDAO goodsDao=new GiveGoodsDAO();
 	            goodsDao.update(entity);
 	            ctx.put("message",  java.net.URLEncoder.encode("保存成功!"));
