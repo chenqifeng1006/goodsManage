@@ -14,17 +14,17 @@
 	//当前第几页
 	int currentPage = (Integer)request.getAttribute("currentPage");
 	//页面分类
-	String type = "giveGoods";	
+	String type = "borrowGoods";	
 	//列表分页的请求的地址
-	String listAction = basePath + "giveGoods/giveGoods_query.action";
+	String listAction = basePath + "borrowGoods/borrowGoods_query.action";
 	//新增数据的请求地址
-	String addAction = basePath + "manage/giveGoodsAdd.jsp";
+	String addAction = basePath + "manage/borrowGoodsAdd.jsp";
 	//修改数据的请求地址
-	String updateAction = basePath + "giveGoods/giveGoods_update.action";
+	String updateAction = basePath + "borrowGoods/borrowGoods_update.action";
 	//删除数据的请求地址
-	String deleteAction = basePath + "giveGoods/giveGoods_delete.action";
+	String deleteAction = basePath + "borrowGoods/borrowGoods_delete.action";
 	//列表数据
-	List<GiveGoods> giveGoodsList=(List<GiveGoods>)request.getAttribute("list");
+	List<BorrowGoods> borrowGoodsList=(List<BorrowGoods>)request.getAttribute("list");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -54,22 +54,22 @@
 					<tr role="row">
 						<th>名称</th>
 						<th>编号</th>
-						<th>数量</th>						
+						<th>状态</th>						
 						<th width="100px;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
-					<%for(int i = 0;i<giveGoodsList.size();i++){%>
+					<%for(int i = 0;i<borrowGoodsList.size();i++){%>
 					<tr>
-						<td style="display:none;"><%=giveGoodsList.get(i).getId() %></td>
-						<td><%=giveGoodsList.get(i).getGoodsname() %></td>
-						<td><%=giveGoodsList.get(i).getGoodsno()%></td>
-						<td><%=giveGoodsList.get(i).getCount() %></td>
+						<td style="display:none;"><%=borrowGoodsList.get(i).getId() %></td>
+						<td><%=borrowGoodsList.get(i).getGoodsname() %></td>
+						<td><%=borrowGoodsList.get(i).getGoodsno()%></td>
+						<td><%=borrowGoodsList.get(i).getStatus() %></td>
 						<td>
-							<a  href="<%=updateAction%>?id=<%=giveGoodsList.get(i).getId() %>">
+							<a  href="<%=updateAction%>?id=<%=borrowGoodsList.get(i).getId() %>">
 								<span>编辑</span>
 							</a>
-							<a  href="<%=deleteAction%>?id=<%=giveGoodsList.get(i).getId() %>">
+							<a  href="<%=deleteAction%>?id=<%=borrowGoodsList.get(i).getId() %>">
 								<span>删除</span>
 							</a>
 						</td>
@@ -77,7 +77,7 @@
 					<%}%>			
 				</tbody>
 			</table>
-			<%if(giveGoodsList.size()==0){%>
+			<%if(borrowGoodsList.size()==0){%>
 				<div class="emptyData">暂无数据,请添加后查看~</div>
 			<%}%>
 			<div class="listFooter">
@@ -87,7 +87,7 @@
 				<div class="cut"></div>
 				<span>第<strong><%=currentPage %></strong>页，共<strong><%=totalPage %></strong>页</span>
 				<div class="cut"></div>
-				<a <%=currentPage == totalPage ? "href='#'" : "href='" + basePath + "giveGoods/giveGoods_query.action?currentPage=" + (currentPage + 1) + "'" %>>
+				<a <%=currentPage == totalPage ? "href='#'" : "href='" + basePath + "borrowGoods/borrowGoods_query.action?currentPage=" + (currentPage + 1) + "'" %>>
 					<span class="next"></span>
 				</a>
 				<div class="info">共<strong><%=recordNumber %></strong>条记录</div>
