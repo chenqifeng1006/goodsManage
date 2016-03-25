@@ -55,6 +55,7 @@ public class AdminLoginAction extends ActionSupport {
 	public String update() {
 		AdminDAO adminDAO = new AdminDAO();
 		ActionContext ctx = ActionContext.getContext();
+		admin.setLoginid(ctx.getSession().get("loginid").toString());
 		try {
 			adminDAO.update(admin);
 		} catch (Exception e) {
