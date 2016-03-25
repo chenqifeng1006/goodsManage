@@ -102,6 +102,9 @@ public class AdminDAO {
     /*更新信息*/
     public void update(Admin admin) throws Exception {
         Session s = null;
+      
+        Admin existAdmin=this.getManager(admin.getLoginid());
+        admin.setPassword(existAdmin.getPassword());
         Transaction tx = null;
         try {
             s = HibernateUtil.getSession();
