@@ -149,7 +149,23 @@ public class BorrowGoodsAction extends ActionSupport {
 	    }
 
 	    
-
+	    /*管理员查询信息*/
+	    public String userQuery() {
+	        if(currentPage == 0) currentPage = 1;
+	        List<BorrowGoods> list = dao.query(currentPage,5,"");
+	        /*计算总的页数和总的记录数*/
+	        dao.CalculateTotalPageAndRecordNumber("");
+	        /*获取到总的页码数目*/
+	        totalPage = dao.getTotalPage();
+	        /*当前查询条件下总记录数*/
+	        recordNumber = dao.getRecordNumber();
+	        ActionContext ctx = ActionContext.getContext();
+	        ctx.put("list",  list);
+	        ctx.put("totalPage", totalPage);
+	        ctx.put("recordNumber", recordNumber);
+	        ctx.put("currentPage", currentPage);
+	        return "user_query_view";
+	    }
 	   
 
 	    /*删除InputCashTable信息*/
