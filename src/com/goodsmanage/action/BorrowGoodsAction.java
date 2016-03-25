@@ -91,7 +91,7 @@ public class BorrowGoodsAction extends ActionSupport {
 	        try {
 	           
 	        	BorrowGoodsDAO dao=new BorrowGoodsDAO();
-
+	        	entity.setStatus("未借出");
 	            dao.add(entity);
 	            ctx.put("message",  java.net.URLEncoder.encode("添加成功!"));
 	            return "success";
