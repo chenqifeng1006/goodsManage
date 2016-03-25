@@ -4,6 +4,10 @@ html,body{
     background-color: #E5E5C8;
 }
 
+.mt20{
+	margin-top:20px;
+}
+
 ul, li {
 	list-style: none;
 	padding: 0;
@@ -83,7 +87,7 @@ input[type="button"] ,button{
 }
 
 
-/* ¹ÜÀíÆ½Ì¨¶¥²¿ */
+/* ï¿½ï¿½ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ */
 .manage_top{
 	padding-left: 25px;
 	background-color: #04242C;
@@ -103,7 +107,7 @@ input[type="button"] ,button{
 }
 
 
-/* ¹ÜÀíÆ½Ì¨×ó²à*/
+/* ï¿½ï¿½ï¿½ï¿½Æ½Ì¨ï¿½ï¿½ï¿½*/
 .manage_left{
 	float:left;
 	width: 15%;
