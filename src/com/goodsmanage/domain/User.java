@@ -11,6 +11,17 @@ public class User {
 	private String telephone;
 	/*µÿ÷∑*/
 	private String address;
+	
+	private String oldPassword;
+	
+	
+	
+	public String getOldPassword() {
+		return oldPassword;
+	}
+	public void setOldPassword(String oldPassword) {
+		this.oldPassword = oldPassword;
+	}
 	public String getUserno() {
 		return userno;
 	}

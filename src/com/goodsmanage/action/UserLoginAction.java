@@ -6,6 +6,7 @@ package com.goodsmanage.action;
 
  
 
+import com.goodsmanage.dao.AdminDAO;
 import com.goodsmanage.dao.UserDAO;
 import com.goodsmanage.domain.User;
 import com.opensymphony.xwork2.ActionContext;
@@ -36,26 +37,60 @@ public class UserLoginAction extends ActionSupport {
 			ctx.put("error",  java.net.URLEncoder.encode(userDAO.getErrMessage()));
 			return "error";
 		}
+		ctx.getSession().put("userno", user.getUserno());
 		ctx.getSession().put("username", user.getUsername());
+		ctx.getSession().put("password", user.getPassword());
+		ctx.getSession().put("telephone", user.getTelephone());
+		ctx.getSession().put("address", user.getAddress());
+
+
+		return "main_view";
+	}
+	public String update() {
+		UserDAO  dao= new UserDAO();
+		ActionContext ctx = ActionContext.getContext();
+		user.setUserno(ctx.getSession().get("userno").toString());
+		try {
+			dao.update(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ctx.getSession().put("userno", user.getUserno());
+		ctx.getSession().put("username", user.getUsername());
+		ctx.getSession().put("password", user.getPassword());
+		ctx.getSession().put("telephone", user.getTelephone());
+		ctx.getSession().put("address", user.getAddress());
+
 		return "main_view";
 	}
 	
-/*	
-	public String regist() {
-
-		  ActionContext ctx = ActionContext.getContext();
-			UserDAO userDAO = new UserDAO();
-
-	        try {
-	        	userDAO.addUser(user);
-	            ctx.put("mmanageessage",  java.net.URLEncoder.encode("×¢²á³É¹¦!"));
-	            return "login_view";
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            ctx.put("error",  java.net.URLEncoder.encode("×¢²áÊ§°Ü!"));
-	            return "error";
-	        }
+	
+	public String updatePassword() {
+		UserDAO  dao= new UserDAO();
+		ActionContext ctx = ActionContext.getContext();
+		user.setUserno(ctx.getSession().get("userno").toString());
+		try {
+			boolean bool=dao.ChangePassword(user.getUserno(),user.getOldPassword(), user.getPassword());
+			if(bool==false){
+				ctx.put("error",  java.net.URLEncoder.encode(dao.getErrMessage()));
+				return "error";
+			}
+		} catch (Exception e) {
+			ctx.put("error",  java.net.URLEncoder.encode(dao.getErrMessage()));
+			e.printStackTrace();
+		}
+		
+		ctx.getSession().put("userno", user.getUserno());
+		ctx.getSession().put("username", user.getUsername());
+		ctx.getSession().put("password", user.getPassword());
+		ctx.getSession().put("telephone", user.getTelephone());
+		ctx.getSession().put("address", user.getAddress());
+		return "main_view";
 	}
-	*/
+	
+	
+
 
 }

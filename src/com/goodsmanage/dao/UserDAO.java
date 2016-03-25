@@ -36,23 +36,32 @@ public class UserDAO {
 	
 
 	/*–ﬁ∏ƒ”√ªßµ«¬º√‹¬Î*/
-	public static void ChangePassword(String userno, String newPassword) {
+	public boolean ChangePassword(String userno,String oldPassword, String newPassword) {
 		Session s = null;
 		Transaction tx = null;
 		try {
 			s = HibernateUtil.getSession();
 			tx = s.beginTransaction();
-			User db_admin = (User)s.get(User.class, userno);
-			db_admin.setPassword(newPassword);
-			s.save(db_admin);
-			tx.commit();
+			User db_user = (User)s.get(User.class, userno);
+			if(!db_user.getPassword().equals(oldPassword)){
+				this.errMessage = " æ…√‹¬Î¥ÌŒÛ ";
+				return false;
+			}else{
+				db_user.setPassword(newPassword);
+				s.save(db_user);
+				tx.commit();
+				return true;
+			}
+		
 		} catch (HibernateException e) {
 			if (tx != null)
 				tx.rollback();
+
 			throw e;
 		}  finally {
 			HibernateUtil.closeSession();
 		}  
+
 	}
 	
 	public static User getUser(String userno) {
@@ -72,6 +81,8 @@ public class UserDAO {
         Session s = null;
         Transaction tx = null;
         try {
+        	User db_user=this.getUser(user.getUserno());
+        	user.setPassword(db_user.getPassword());
             s = HibernateUtil.getSession();
             tx = s.beginTransaction();
             s.update(user);
