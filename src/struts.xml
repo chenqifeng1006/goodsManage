@@ -25,6 +25,14 @@
 	        	<result name="login_view">/manage/managerLogin.jsp</result> 	          
 	        </action>  
 	 </package>
-	 
+	  <package name="giveGoods" namespace="/giveGoods" extends="struts-default">
+           <action name="giveGoods_*" class="giveGoodsAction" method="{1}">
+             <result name="success">/message.jsp</result>
+             <result name="error">/error.jsp</result>
+             <result name="query_view">/manage/giveGoodsList.jsp</result>
+             <result name="modify_view">/manage/giveGoodsUpdate.jsp</result>
+           </action>
+         </package>
+         
 	 
 </struts>
