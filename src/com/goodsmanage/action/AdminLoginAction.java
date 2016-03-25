@@ -74,6 +74,7 @@ public class AdminLoginAction extends ActionSupport {
 	public String updatePassword() {
 		AdminDAO adminDAO = new AdminDAO();
 		ActionContext ctx = ActionContext.getContext();
+		admin.setLoginid(ctx.getSession().get("loginid").toString());
 		try {
 			adminDAO.changePassword(admin.getLoginid(),admin.getOldPassword(), admin.getPassword());
 		} catch (Exception e) {
