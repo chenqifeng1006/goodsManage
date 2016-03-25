@@ -7,6 +7,7 @@ package com.goodsmanage.action;
  
 
 import java.util.Date;
+import java.util.List;
 
 import com.goodsmanage.dao.BorrowGoodsRecordDAO;
 import com.goodsmanage.dao.GiveGoodsRecordDAO;
@@ -93,7 +94,7 @@ public class BorrowGoodsRecordAction extends ActionSupport {
 
 	
 
-	/*添加InputCashTable信息*/
+	/*添加信息*/
     @SuppressWarnings("deprecation")
     public String add() {
         ActionContext ctx = ActionContext.getContext();
@@ -136,11 +137,14 @@ public class BorrowGoodsRecordAction extends ActionSupport {
         }
 
     }
-
-    管理员查询信息
-    public String query() {
+*/
+    
+    /**
+     *  申请记录
+     **/
+/*    public String query() {
         if(currentPage == 0) currentPage = 1;
-        List<BorrowGoods> list = dao.query(currentPage,5,"");
+        List<BorrowGoodsRecord> list = dao.query(currentPage,5,"");
         计算总的页数和总的记录数
         dao.CalculateTotalPageAndRecordNumber("");
         获取到总的页码数目
@@ -153,20 +157,20 @@ public class BorrowGoodsRecordAction extends ActionSupport {
         ctx.put("recordNumber", recordNumber);
         ctx.put("currentPage", currentPage);
         return "query_view";
-    }
+    }*/
 
     
-    管理员查询信息
+     /**
+      * 员工查询我的申请记录
+      */
     public String userQuery() {
-        if(currentPage == 0) currentPage = 1;
-        List<BorrowGoods> list = dao.query(currentPage,5,"");
-        计算总的页数和总的记录数
-        dao.CalculateTotalPageAndRecordNumber("");
-        获取到总的页码数目
-        totalPage = dao.getTotalPage();
-        当前查询条件下总记录数
-        recordNumber = dao.getRecordNumber();
         ActionContext ctx = ActionContext.getContext();
+
+        if(currentPage == 0) currentPage = 1;
+        List<BorrowGoodsRecord> list = dao.query(currentPage,5,ctx.getSession().get("userno").toString());
+        dao.CalculateTotalPageAndRecordNumber(ctx.getSession().get("userno").toString());
+        totalPage = dao.getTotalPage();
+        recordNumber = dao.getRecordNumber();
         ctx.put("list",  list);
         ctx.put("totalPage", totalPage);
         ctx.put("recordNumber", recordNumber);
@@ -174,21 +178,6 @@ public class BorrowGoodsRecordAction extends ActionSupport {
         return "user_query_view";
     }
    
-
-    删除InputCashTable信息
-    public String delete() {
-        ActionContext ctx = ActionContext.getContext();
-        try { 
-        	dao.delete(id);
-            ctx.put("message",  java.net.URLEncoder.encode("删除成功!"));
-            return "success";
-        } catch (Exception e) { 
-            e.printStackTrace();
-            ctx.put("error",  java.net.URLEncoder.encode("删除失败!"));
-            return "error";
-        }
-    }
-*/
 
 	
 

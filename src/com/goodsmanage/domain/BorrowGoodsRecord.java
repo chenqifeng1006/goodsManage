@@ -17,7 +17,17 @@ public class BorrowGoodsRecord {
 
 	private String status;
 	
+	private String goodsname;
 	
+	
+
+	public String getGoodsname() {
+		return goodsname;
+	}
+
+	public void setGoodsname(String goodsname) {
+		this.goodsname = goodsname;
+	}
 
 	public String getStatus() {
 		return status;

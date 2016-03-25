@@ -3,11 +3,13 @@ package com.goodsmanage.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.xwork.StringUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.goodsmanage.domain.BorrowGoodsRecord;
 import com.goodsmanage.domain.GiveGoodsRecord;
 import com.goodsmanage.utils.HibernateUtil;
 
@@ -53,11 +55,16 @@ public class GiveGoodsRecordDAO {
     }
 
     /*查询信息*/
-    public ArrayList<GiveGoodsRecord> query(int currentPage,int pageSize) { 
+    public ArrayList<GiveGoodsRecord> query(int currentPage,int pageSize,String userno) { 
         Session s = null; 
+        GiveGoodsDAO dao = new GiveGoodsDAO();
+
         try {
             s = HibernateUtil.getSession();
             String hql = "From GiveGoodsRecord giveGoodsRecord where 1=1";
+            if(StringUtils.isNotBlank(userno)){
+            	hql+="and userno="+userno;
+            }
 /*            if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
             if(null != inputFroms && inputFroms.getInputClassId()!=0) hql += " and inputCashTable.inputFroms.inputClassId=" + inputFroms.getInputClassId();
             if(null != payWayObj && payWayObj.getPayWayId()!=0) hql += " and inputCashTable.payWayObj.payWayId=" + payWayObj.getPayWayId();
@@ -67,19 +74,31 @@ public class GiveGoodsRecordDAO {
             int startIndex = (currentPage-1) * pageSize;
             q.setFirstResult(startIndex);
             q.setMaxResults(this.PAGE_SIZE);
-            List bookList = q.list();
-            return (ArrayList<GiveGoodsRecord>) bookList;
+            List recordList = q.list();
+            if(recordList==null){
+            	return null;
+            }
+            List<GiveGoodsRecord>   list =(ArrayList<GiveGoodsRecord>) recordList;
+
+            for(int i=0;i<list.size();i++ ){
+            	list.get(i).setGoodsname(dao.getById(list.get(i).getGoodsid()).getGoodsname());
+            }
+            
+            return (ArrayList<GiveGoodsRecord>) list;
         } finally {
             HibernateUtil.closeSession();
         }
     }
 
     /*计算总的页数和记录数*/
-    public void CalculateTotalPageAndRecordNumber() {
+    public void CalculateTotalPageAndRecordNumber(String userno) {
         Session s = null;
         try {
             s = HibernateUtil.getSession();
             String hql = "From GiveGoodsRecord giveGoodsRecord where 1=1";
+            if(StringUtils.isNotBlank(userno)){
+            	hql+="and userno="+userno;
+            }
      /*       if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
             if(null != inputFroms && inputFroms.getInputClassId()!=0) hql += " and inputCashTable.inputFroms.inputClassId=" + inputFroms.getInputClassId();
             if(null != payWayObj && payWayObj.getPayWayId()!=0) hql += " and inputCashTable.payWayObj.payWayId=" + payWayObj.getPayWayId();

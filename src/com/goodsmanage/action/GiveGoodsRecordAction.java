@@ -9,14 +9,8 @@ package com.goodsmanage.action;
 import java.util.Date;
 import java.util.List;
 
-import com.goodsmanage.dao.BorrowGoodsDAO;
-import com.goodsmanage.dao.BorrowGoodsRecordDAO;
 import com.goodsmanage.dao.GiveGoodsRecordDAO;
-import com.goodsmanage.dao.UserDAO;
-import com.goodsmanage.domain.BorrowGoods;
-import com.goodsmanage.domain.BorrowGoodsRecord;
 import com.goodsmanage.domain.GiveGoodsRecord;
-import com.goodsmanage.domain.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -135,16 +129,12 @@ public class GiveGoodsRecordAction extends ActionSupport {
         }
 
     }
-
-    管理员查询信息
-    public String query() {
+*/
+   /* public String query() {
         if(currentPage == 0) currentPage = 1;
         List<BorrowGoods> list = dao.query(currentPage,5,"");
-        计算总的页数和总的记录数
         dao.CalculateTotalPageAndRecordNumber("");
-        获取到总的页码数目
         totalPage = dao.getTotalPage();
-        当前查询条件下总记录数
         recordNumber = dao.getRecordNumber();
         ActionContext ctx = ActionContext.getContext();
         ctx.put("list",  list);
@@ -152,18 +142,14 @@ public class GiveGoodsRecordAction extends ActionSupport {
         ctx.put("recordNumber", recordNumber);
         ctx.put("currentPage", currentPage);
         return "query_view";
-    }
+    }*/
 
     
-    管理员查询信息
     public String userQuery() {
         if(currentPage == 0) currentPage = 1;
-        List<BorrowGoods> list = dao.query(currentPage,5,"");
-        计算总的页数和总的记录数
+        List<GiveGoodsRecord> list = dao.query(currentPage,5,"");
         dao.CalculateTotalPageAndRecordNumber("");
-        获取到总的页码数目
         totalPage = dao.getTotalPage();
-        当前查询条件下总记录数
         recordNumber = dao.getRecordNumber();
         ActionContext ctx = ActionContext.getContext();
         ctx.put("list",  list);
@@ -174,20 +160,7 @@ public class GiveGoodsRecordAction extends ActionSupport {
     }
    
 
-    删除InputCashTable信息
-    public String delete() {
-        ActionContext ctx = ActionContext.getContext();
-        try { 
-        	dao.delete(id);
-            ctx.put("message",  java.net.URLEncoder.encode("删除成功!"));
-            return "success";
-        } catch (Exception e) { 
-            e.printStackTrace();
-            ctx.put("error",  java.net.URLEncoder.encode("删除失败!"));
-            return "error";
-        }
-    }
-*/
+  
 
 	
 
