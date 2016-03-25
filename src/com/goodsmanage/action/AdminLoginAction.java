@@ -66,7 +66,7 @@ public class AdminLoginAction extends ActionSupport {
 		ctx.getSession().put("loginid", admin.getLoginid());
 		ctx.getSession().put("telephone", admin.getTelephone());
         
-		return "";
+		return "main_view";
 	}
 	
 	
@@ -84,7 +84,7 @@ public class AdminLoginAction extends ActionSupport {
 		ctx.getSession().put("loginid", admin.getLoginid());
 		ctx.getSession().put("telephone", admin.getTelephone());
         
-		return "";
+		return "main_view";
 	}
 	
 	
