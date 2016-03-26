@@ -110,12 +110,13 @@ public class BorrowGoodsRecordAction extends ActionSupport {
     @SuppressWarnings("deprecation")
     public String add() {
         ActionContext ctx = ActionContext.getContext();
-        
+        BorrowGoodsDAO dao1=new BorrowGoodsDAO();
         try {
-           
+        	BorrowGoods goods=dao1.getById(goodsid);
         	BorrowGoodsRecordDAO dao=new BorrowGoodsRecordDAO();
            	entity=new BorrowGoodsRecord();
         	entity.setGoodsid(goodsid);
+        	entity.setGoodsname(goods.getGoodsname());
         	entity.setStatus("…Í«Î÷–");
         	entity.setBorrow_time(new Date());
         	entity.setUserno(ctx.getSession().get("userno").toString());

@@ -9,6 +9,7 @@ package com.goodsmanage.action;
 import java.util.Date;
 import java.util.List;
 
+import com.goodsmanage.dao.BorrowGoodsDAO;
 import com.goodsmanage.dao.GiveGoodsDAO;
 import com.goodsmanage.dao.GiveGoodsRecordDAO;
 import com.goodsmanage.domain.GiveGoods;
@@ -100,12 +101,14 @@ public class GiveGoodsRecordAction extends ActionSupport {
     @SuppressWarnings("deprecation")
     public String add() {
         ActionContext ctx = ActionContext.getContext();
-        
+        GiveGoodsDAO dao1=new GiveGoodsDAO();
+
         try {
-           
+        	GiveGoods goods=dao1.getById(goodsid);
         	GiveGoodsRecordDAO dao=new GiveGoodsRecordDAO();
         	entity=new GiveGoodsRecord();
         	entity.setGoodsid(goodsid);
+        	entity.setGoodsname(goods.getGoodsname());
         	entity.setStatus("…Í«Î÷–");
         	entity.setGive_time(new Date());
         	entity.setUserno(ctx.getSession().get("userno").toString());
