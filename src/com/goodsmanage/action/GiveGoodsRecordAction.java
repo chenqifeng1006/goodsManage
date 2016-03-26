@@ -181,7 +181,7 @@ public class GiveGoodsRecordAction extends ActionSupport {
         ActionContext ctx = ActionContext.getContext();
 
     	GiveGoodsRecord record = dao.getById(id);
-    	record.setStatus("已同意");
+    	record.setStatus("已拒绝");
     	try {
 			dao.update(record);
 		} catch (Exception e) {

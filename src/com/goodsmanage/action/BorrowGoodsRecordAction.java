@@ -230,7 +230,7 @@ public class BorrowGoodsRecordAction extends ActionSupport {
         ActionContext ctx = ActionContext.getContext();
         BorrowGoodsDAO borrowGoodsDao=new BorrowGoodsDAO();
         BorrowGoodsRecord record = dao.getById(id);
-    	record.setStatus("已领取");
+    	record.setStatus("已借用");
     	record.setBorrow_time(new Date());
     	try {
 			dao.update(record);
