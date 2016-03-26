@@ -64,7 +64,7 @@ public class BorrowGoodsRecordDAO {
             if(StringUtils.isNotBlank(userno)){
             	hql+="and userno='"+userno+"'";
             }
-            if(StringUtils.isNotBlank(userno)){
+            if(StringUtils.isNotBlank(goodsname)){
             	hql+="and goodsname like '%"+goodsname+"%'";
             }
 /*            if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
@@ -101,7 +101,7 @@ public class BorrowGoodsRecordDAO {
             if(StringUtils.isNotBlank(userno)){
             	hql+="and userno='"+userno+"'";
             }
-            if(StringUtils.isNotBlank(userno)){
+            if(StringUtils.isNotBlank(goodsname)){
             	hql+="and goodsname like '%"+goodsname+"%'";
             }
      /*       if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
