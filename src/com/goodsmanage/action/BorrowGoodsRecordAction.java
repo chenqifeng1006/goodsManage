@@ -252,6 +252,31 @@ public class BorrowGoodsRecordAction extends ActionSupport {
     	
     }
 	
+    public String returnBack(){
+        ActionContext ctx = ActionContext.getContext();
+        BorrowGoodsDAO borrowGoodsDao=new BorrowGoodsDAO();
+        BorrowGoodsRecord record = dao.getById(id);
+    	record.setStatus("已归还");
+    	record.setReturn_time(new Date());
+    	try {
+			dao.update(record);
+			BorrowGoods goods= borrowGoodsDao.getById(record.getGoodsid());
 
+				goods.setStatus("未借出");
+				borrowGoodsDao.update(goods);
+		        ctx.put("message",  java.net.URLEncoder.encode("归还成功!"));
+	            return "success";
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+	        ctx.put("message",  java.net.URLEncoder.encode("系统异常，请稍后重试!"));
+            return "error";
+
+		}
+
+    	
+    }
+	
 	
 }
