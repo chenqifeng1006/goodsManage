@@ -132,6 +132,7 @@ public class GiveGoodsRecordAction extends ActionSupport {
         ActionContext ctx = ActionContext.getContext();
         if(currentPage == 0) currentPage = 1;
         try {
+        	if(goodsname != null)
 			goodsname = URLDecoder.decode(goodsname, "utf-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block

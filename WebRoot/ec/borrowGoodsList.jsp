@@ -59,7 +59,7 @@
 						<td><%=borrowGoodsList.get(i).getGoodsno()%></td>
 						<td><%=borrowGoodsList.get(i).getStatus() %></td>
 						<td>
-							<% if("Œ¥ΩË”√".equals(borrowGoodsList.get(i).getStatus())){%>
+							<% if("Œ¥ΩË≥ˆ".equals(borrowGoodsList.get(i).getStatus())){%>
 								<a  href="<%=addAction%>?goodsid=<%=borrowGoodsList.get(i).getId() %>">
 								<span>…Í«ÎΩË”√</span>
 							</a>
