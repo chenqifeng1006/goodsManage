@@ -1,6 +1,12 @@
-<%@ page language="java" contentType="text/html;charset=GB2312" pageEncoding="GB2312"%>
-<div class="ec_top">
- 	<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎您,亲爱的会员朋友</span>
- 	<a href="<%=basePath%>shoppingCar/shoppingCar_userQuery.action">我的购物车</a>
- 	<a href="<%=basePath%>order/order_userQuery.action">我的订单</a>
+<%@ page language="java" contentType="text/html; charset=GB2312" pageEncoding="GB2312"%>
+<div class="manage_top">
+	<div>
+		启化公司物资管理系统管理系统
+		<a href="../ec/updatePassword.jsp">
+			<span>修改密码</span>
+		</a>
+		<a href="../ec/updateInfo.jsp">
+			<span><%=(String)session.getAttribute("username") %>您好</span>
+		</a>
+	</div>
 </div>

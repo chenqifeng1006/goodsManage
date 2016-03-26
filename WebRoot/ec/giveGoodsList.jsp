@@ -16,13 +16,11 @@
 	//页面分类
 	String type = "giveGoods";	
 	//列表分页的请求的地址
-	String listAction = basePath + "giveGoods/giveGoods_query.action";
-	//新增数据的请求地址
-	String addAction = basePath + "manage/giveGoodsAdd.jsp";
+	String listAction = basePath + "giveGoods/giveGoods_userQuery.action";
 	//修改数据的请求地址
-	String updateAction = basePath + "giveGoods/giveGoods_update.action";
+	String updateAction = basePath + "giveGoods/giveGoods_userQpdate.action";
 	//删除数据的请求地址
-	String deleteAction = basePath + "giveGoods/giveGoods_delete.action";
+	String addAction = basePath + "giveGoodsRecord/giveGoodsRecord_add.action";
 	//列表数据
 	List<GiveGoods> giveGoodsList=(List<GiveGoods>)request.getAttribute("list");
 %>
@@ -45,9 +43,9 @@
 			<!-- <div><span>名称:</span><input type="text"></div>
 			<div><span>名称:</span><input type="text"></div> -->
 		</div>
-		<div class="manageButton">
+		<%-- <div class="manageButton">
 			<a class="button" href="<%=addAction %>">新增</a>
-		</div>
+		</div> --%>
 		<div class="manageList">
 			<table>
 				<thead>
@@ -66,11 +64,8 @@
 						<td><%=giveGoodsList.get(i).getGoodsno()%></td>
 						<td><%=giveGoodsList.get(i).getCount() %></td>
 						<td>
-							<a  href="<%=updateAction%>?id=<%=giveGoodsList.get(i).getId() %>">
-								<span>编辑</span>
-							</a>
-							<a  href="<%=deleteAction%>?id=<%=giveGoodsList.get(i).getId() %>">
-								<span>删除</span>
+							<a  href="<%=addAction%>?goodsid=<%=giveGoodsList.get(i).getId() %>">
+								<span>物品申领</span>
 							</a>
 						</td>
 					</tr>	
@@ -87,7 +82,7 @@
 				<div class="cut"></div>
 				<span>第<strong><%=currentPage %></strong>页，共<strong><%=totalPage %></strong>页</span>
 				<div class="cut"></div>
-				<a <%=currentPage == totalPage ? "href='#'" : "href='" + basePath + "giveGoods/giveGoods_query.action?currentPage=" + (currentPage + 1) + "'" %>>
+				<a <%=currentPage == totalPage ? "href='#'" : "href='" + basePath + "giveGoods/giveGoods_userQuery.action?currentPage=" + (currentPage + 1) + "'" %>>
 					<span class="next"></span>
 				</a>
 				<div class="info">共<strong><%=recordNumber %></strong>条记录</div>
