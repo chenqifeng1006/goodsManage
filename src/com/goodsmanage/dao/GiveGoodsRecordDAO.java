@@ -66,7 +66,7 @@ public class GiveGoodsRecordDAO {
             s = HibernateUtil.getSession();
             String hql = "From GiveGoodsRecord giveGoodsRecord where 1=1";
             if(StringUtils.isNotBlank(userno)){
-            	hql+="and userno="+userno;
+            	hql+="and userno='"+userno+"'";
             }
             if(StringUtils.isNotBlank(userno)){
             	hql+="and goodsname like '%"+goodsname+"%'";
@@ -103,7 +103,7 @@ public class GiveGoodsRecordDAO {
             s = HibernateUtil.getSession();
             String hql = "From GiveGoodsRecord giveGoodsRecord where 1=1";
             if(StringUtils.isNotBlank(userno)){
-            	hql+="and userno="+userno;
+            	hql+="and userno='"+userno+"'";
             }
             if(StringUtils.isNotBlank(userno)){
             	hql+="and goodsname like '%"+goodsname+"%'";

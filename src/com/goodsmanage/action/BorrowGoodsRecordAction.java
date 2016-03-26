@@ -174,7 +174,7 @@ public class BorrowGoodsRecordAction extends ActionSupport {
         ActionContext ctx = ActionContext.getContext();
 
         if(currentPage == 0) currentPage = 1;
-        List<BorrowGoodsRecord> list = dao.query(currentPage,5,ctx.getSession().get("userno").toString(),goodsname);
+        List<BorrowGoodsRecord> list = dao.query(currentPage,5,ctx.getSession().get("userno").toString(),"");
         dao.CalculateTotalPageAndRecordNumber(ctx.getSession().get("userno").toString(),"");
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();
