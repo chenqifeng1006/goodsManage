@@ -93,13 +93,16 @@ public class BorrowGoodsRecordDAO {
     }
 
     /*计算总的页数和记录数*/
-    public void CalculateTotalPageAndRecordNumber(String userno) {
+    public void CalculateTotalPageAndRecordNumber(String userno,String goodsname) {
         Session s = null;
         try {
             s = HibernateUtil.getSession();
             String hql = "From BorrowGoodsRecord borrowGoodsRecord where 1=1";
             if(StringUtils.isNotBlank(userno)){
             	hql+="and userno="+userno;
+            }
+            if(StringUtils.isNotBlank(userno)){
+            	hql+="and goodsname like '%"+goodsname+"%'";
             }
      /*       if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
             if(null != inputFroms && inputFroms.getInputClassId()!=0) hql += " and inputCashTable.inputFroms.inputClassId=" + inputFroms.getInputClassId();

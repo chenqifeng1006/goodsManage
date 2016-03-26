@@ -9,7 +9,9 @@ package com.goodsmanage.action;
 import java.util.Date;
 import java.util.List;
 
+import com.goodsmanage.dao.GiveGoodsDAO;
 import com.goodsmanage.dao.GiveGoodsRecordDAO;
+import com.goodsmanage.domain.GiveGoods;
 import com.goodsmanage.domain.GiveGoodsRecord;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -125,7 +127,7 @@ public class GiveGoodsRecordAction extends ActionSupport {
         ActionContext ctx = ActionContext.getContext();
         if(currentPage == 0) currentPage = 1;
         List<GiveGoodsRecord> list = dao.query("",goodsname,currentPage,5);
-        dao.CalculateTotalPageAndRecordNumber("");
+        dao.CalculateTotalPageAndRecordNumber("",goodsname);
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();
 
@@ -143,7 +145,7 @@ public class GiveGoodsRecordAction extends ActionSupport {
         String userno=ctx.getSession().get("userno").toString();
         if(currentPage == 0) currentPage = 1;
         List<GiveGoodsRecord> list = dao.query(userno,"",currentPage,5);
-        dao.CalculateTotalPageAndRecordNumber("");
+        dao.CalculateTotalPageAndRecordNumber(userno,goodsname);
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();
 
@@ -155,9 +157,75 @@ public class GiveGoodsRecordAction extends ActionSupport {
     }
    
 
-  
+    public String agree(){
+        ActionContext ctx = ActionContext.getContext();
 
+    	GiveGoodsRecord record = dao.getById(id);
+    	record.setStatus("已同意");
+    	try {
+			dao.update(record);
+		} catch (Exception e) {
+	        ctx.put("message",  java.net.URLEncoder.encode("系统异常，请稍后重试!"));
+
+			e.printStackTrace();
+            return "error";
+
+		}
+        ctx.put("message",  java.net.URLEncoder.encode("已同意!"));
+
+    	return "success";
+    	
+    }
+  
+    public String refuse(){
+        ActionContext ctx = ActionContext.getContext();
+
+    	GiveGoodsRecord record = dao.getById(id);
+    	record.setStatus("已同意");
+    	try {
+			dao.update(record);
+		} catch (Exception e) {
+			e.printStackTrace();
+	        ctx.put("message",  java.net.URLEncoder.encode("系统异常，请稍后重试!"));
+            return "error";
+
+		}
+        ctx.put("message",  java.net.URLEncoder.encode("已拒绝!"));
+
+    	return "success";
+    	
+    }
 	
 
+    public String give(){
+        ActionContext ctx = ActionContext.getContext();
+        GiveGoodsDAO giveGoodsDao=new GiveGoodsDAO();
+    	GiveGoodsRecord record = dao.getById(id);
+    	record.setStatus("已领取");
+    	record.setGive_time(new Date());
+    	try {
+			dao.update(record);
+			GiveGoods goods= giveGoodsDao.getById(record.getGoodsid());
+			if(goods.getCount()-1<=0){
+				  ctx.put("message",  java.net.URLEncoder.encode("此物品数量不足，无法领取!"));
+		          return "error";
+			}else{
+				goods.setCount(goods.getCount()-1);
+				giveGoodsDao.update(goods);
+			  ctx.put("message",  java.net.URLEncoder.encode("领取成功!"));
+
+		    	return "success";
+
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+	        ctx.put("message",  java.net.URLEncoder.encode("系统异常，请稍后重试!"));
+            return "error";
+
+		}
+    	
+    }
+	
 	
 }

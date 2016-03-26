@@ -58,7 +58,7 @@ public class GiveGoodsRecordDAO {
     
     
     /*查询信息*/
-    public ArrayList<GiveGoodsRecord> query(String userno,String gooodsname,int currentPage,int pageSize) { 
+    public ArrayList<GiveGoodsRecord> query(String userno,String goodsname,int currentPage,int pageSize) { 
         Session s = null; 
         GiveGoodsDAO dao = new GiveGoodsDAO();
 
@@ -69,7 +69,7 @@ public class GiveGoodsRecordDAO {
             	hql+="and userno="+userno;
             }
             if(StringUtils.isNotBlank(userno)){
-            	hql+="and goodsname like '%"+gooodsname+"%'";
+            	hql+="and goodsname like '%"+goodsname+"%'";
             }
 /*            if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
             if(null != inputFroms && inputFroms.getInputClassId()!=0) hql += " and inputCashTable.inputFroms.inputClassId=" + inputFroms.getInputClassId();
@@ -97,13 +97,16 @@ public class GiveGoodsRecordDAO {
     }
 
     /*计算总的页数和记录数*/
-    public void CalculateTotalPageAndRecordNumber(String userno) {
+    public void CalculateTotalPageAndRecordNumber(String userno,String goodsname) {
         Session s = null;
         try {
             s = HibernateUtil.getSession();
             String hql = "From GiveGoodsRecord giveGoodsRecord where 1=1";
             if(StringUtils.isNotBlank(userno)){
             	hql+="and userno="+userno;
+            }
+            if(StringUtils.isNotBlank(userno)){
+            	hql+="and goodsname like '%"+goodsname+"%'";
             }
      /*       if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
             if(null != inputFroms && inputFroms.getInputClassId()!=0) hql += " and inputCashTable.inputFroms.inputClassId=" + inputFroms.getInputClassId();
@@ -121,11 +124,11 @@ public class GiveGoodsRecordDAO {
     }
 
     /*根据主键获取对象*/
-    public GiveGoodsRecord getById(int bookId) {
+    public GiveGoodsRecord getById(int id) {
         Session s = null;
         try {
             s = HibernateUtil.getSession();
-            GiveGoodsRecord entity = (GiveGoodsRecord)s.get(GiveGoodsRecord.class, bookId);
+            GiveGoodsRecord entity = (GiveGoodsRecord)s.get(GiveGoodsRecord.class, id);
             return entity;
         } finally {
             HibernateUtil.closeSession();

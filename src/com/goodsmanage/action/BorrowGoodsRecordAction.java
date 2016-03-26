@@ -9,9 +9,13 @@ package com.goodsmanage.action;
 import java.util.Date;
 import java.util.List;
 
+import com.goodsmanage.dao.BorrowGoodsDAO;
 import com.goodsmanage.dao.BorrowGoodsRecordDAO;
+import com.goodsmanage.dao.GiveGoodsDAO;
 import com.goodsmanage.dao.GiveGoodsRecordDAO;
+import com.goodsmanage.domain.BorrowGoods;
 import com.goodsmanage.domain.BorrowGoodsRecord;
+import com.goodsmanage.domain.GiveGoods;
 import com.goodsmanage.domain.GiveGoodsRecord;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -152,7 +156,7 @@ public class BorrowGoodsRecordAction extends ActionSupport {
 
         if(currentPage == 0) currentPage = 1;
         List<BorrowGoodsRecord> list = dao.query(currentPage,5,"",goodsname);
-        dao.CalculateTotalPageAndRecordNumber(ctx.getSession().get("userno").toString());
+        dao.CalculateTotalPageAndRecordNumber("",goodsname);
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();
         ctx.put("list",  list);
@@ -170,7 +174,7 @@ public class BorrowGoodsRecordAction extends ActionSupport {
 
         if(currentPage == 0) currentPage = 1;
         List<BorrowGoodsRecord> list = dao.query(currentPage,5,ctx.getSession().get("userno").toString(),goodsname);
-        dao.CalculateTotalPageAndRecordNumber(ctx.getSession().get("userno").toString());
+        dao.CalculateTotalPageAndRecordNumber(ctx.getSession().get("userno").toString(),"");
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();
         ctx.put("list",  list);
@@ -181,8 +185,72 @@ public class BorrowGoodsRecordAction extends ActionSupport {
     }
    
 
+
+    public String agree(){
+        ActionContext ctx = ActionContext.getContext();
+
+        BorrowGoodsRecord record = dao.getById(id);
+    	record.setStatus("已同意");
+    	try {
+			dao.update(record);
+		} catch (Exception e) {
+	        ctx.put("message",  java.net.URLEncoder.encode("系统异常，请稍后重试!"));
+
+			e.printStackTrace();
+            return "error";
+
+		}
+        ctx.put("message",  java.net.URLEncoder.encode("已同意!"));
+
+    	return "success";
+    	
+    }
+  
+    public String refuse(){
+        ActionContext ctx = ActionContext.getContext();
+
+    	BorrowGoodsRecord record = dao.getById(id);
+    	record.setStatus("已同意");
+    	try {
+			dao.update(record);
+		} catch (Exception e) {
+			e.printStackTrace();
+	        ctx.put("message",  java.net.URLEncoder.encode("系统异常，请稍后重试!"));
+            return "error";
+
+		}
+        ctx.put("message",  java.net.URLEncoder.encode("已拒绝!"));
+
+    	return "success";
+    	
+    }
 	
 
+    public String borrow(){
+        ActionContext ctx = ActionContext.getContext();
+        BorrowGoodsDAO borrowGoodsDao=new BorrowGoodsDAO();
+        BorrowGoodsRecord record = dao.getById(id);
+    	record.setStatus("已领取");
+    	record.setBorrow_time(new Date());
+    	try {
+			dao.update(record);
+			BorrowGoods goods= borrowGoodsDao.getById(record.getGoodsid());
+
+				goods.setStatus("已借出");
+				borrowGoodsDao.update(goods);
+		        ctx.put("message",  java.net.URLEncoder.encode("借用成功!"));
+	            return "success";
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+	        ctx.put("message",  java.net.URLEncoder.encode("系统异常，请稍后重试!"));
+            return "error";
+
+		}
+
+    	
+    }
 	
 
 	
