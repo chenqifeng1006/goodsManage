@@ -6,6 +6,8 @@ package com.goodsmanage.action;
 
  
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Date;
 import java.util.List;
 
@@ -129,6 +131,12 @@ public class GiveGoodsRecordAction extends ActionSupport {
     public String query() {
         ActionContext ctx = ActionContext.getContext();
         if(currentPage == 0) currentPage = 1;
+        try {
+			goodsname = URLDecoder.decode(goodsname, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         List<GiveGoodsRecord> list = dao.query("",goodsname,currentPage,5);
         dao.CalculateTotalPageAndRecordNumber("",goodsname);
         totalPage = dao.getTotalPage();
