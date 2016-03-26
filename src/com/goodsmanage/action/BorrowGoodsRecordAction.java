@@ -47,8 +47,16 @@ public class BorrowGoodsRecordAction extends ActionSupport {
 	public int goodsid;
 	
 	
+	public String goodsname;
 	
 	
+	
+	public String getGoodsname() {
+		return goodsname;
+	}
+	public void setGoodsname(String goodsname) {
+		this.goodsname = goodsname;
+	}
 	public int getGoodsid() {
 		return goodsid;
 	}
@@ -139,26 +147,20 @@ public class BorrowGoodsRecordAction extends ActionSupport {
     }
 */
     
-    /**
-     *  申请记录
-     **/
-/*    public String query() {
-        if(currentPage == 0) currentPage = 1;
-        List<BorrowGoodsRecord> list = dao.query(currentPage,5,"");
-        计算总的页数和总的记录数
-        dao.CalculateTotalPageAndRecordNumber("");
-        获取到总的页码数目
-        totalPage = dao.getTotalPage();
-        当前查询条件下总记录数
-        recordNumber = dao.getRecordNumber();
+    public String query() {
         ActionContext ctx = ActionContext.getContext();
+
+        if(currentPage == 0) currentPage = 1;
+        List<BorrowGoodsRecord> list = dao.query(currentPage,5,"",goodsname);
+        dao.CalculateTotalPageAndRecordNumber(ctx.getSession().get("userno").toString());
+        totalPage = dao.getTotalPage();
+        recordNumber = dao.getRecordNumber();
         ctx.put("list",  list);
         ctx.put("totalPage", totalPage);
         ctx.put("recordNumber", recordNumber);
         ctx.put("currentPage", currentPage);
         return "query_view";
-    }*/
-
+    }
     
      /**
       * 员工查询我的申请记录
@@ -167,7 +169,7 @@ public class BorrowGoodsRecordAction extends ActionSupport {
         ActionContext ctx = ActionContext.getContext();
 
         if(currentPage == 0) currentPage = 1;
-        List<BorrowGoodsRecord> list = dao.query(currentPage,5,ctx.getSession().get("userno").toString());
+        List<BorrowGoodsRecord> list = dao.query(currentPage,5,ctx.getSession().get("userno").toString(),goodsname);
         dao.CalculateTotalPageAndRecordNumber(ctx.getSession().get("userno").toString());
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();

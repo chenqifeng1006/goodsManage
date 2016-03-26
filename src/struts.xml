@@ -53,6 +53,7 @@
            <action name="giveGoodsRecord_*" class="giveGoodsRecordAction" method="{1}">
              <result name="success">/message.jsp</result>
              <result name="user_query_view">/ec/myGiveGoodsList.jsp</result>
+              <result name="query_view">/manage/giveGoodsRecordList.jsp</result>
              
              <result name="error">/error.jsp</result>
            
@@ -62,7 +63,7 @@
            <action name="borrowGoodsRecord_*" class="borrowGoodsRecordAction" method="{1}">
              <result name="success">/message.jsp</result>
              <result name="user_query_view">/ec/myBorrowGoodsList.jsp</result>
-             
+             <result name="query_view">/manage/borrowGoodsRecordList.jsp</result>
              <result name="error">/error.jsp</result>
             
            </action>

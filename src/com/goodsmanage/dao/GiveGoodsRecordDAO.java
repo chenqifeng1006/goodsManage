@@ -54,8 +54,11 @@ public class GiveGoodsRecordDAO {
         }
     }
 
+ 
+    
+    
     /*≤È—Ø–≈œ¢*/
-    public ArrayList<GiveGoodsRecord> query(int currentPage,int pageSize,String userno) { 
+    public ArrayList<GiveGoodsRecord> query(String userno,String gooodsname,int currentPage,int pageSize) { 
         Session s = null; 
         GiveGoodsDAO dao = new GiveGoodsDAO();
 
@@ -64,6 +67,9 @@ public class GiveGoodsRecordDAO {
             String hql = "From GiveGoodsRecord giveGoodsRecord where 1=1";
             if(StringUtils.isNotBlank(userno)){
             	hql+="and userno="+userno;
+            }
+            if(StringUtils.isNotBlank(userno)){
+            	hql+="and goodsname like '%"+gooodsname+"%'";
             }
 /*            if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
             if(null != inputFroms && inputFroms.getInputClassId()!=0) hql += " and inputCashTable.inputFroms.inputClassId=" + inputFroms.getInputClassId();
@@ -78,13 +84,13 @@ public class GiveGoodsRecordDAO {
             if(recordList==null){
             	return null;
             }
-            List<GiveGoodsRecord>   list =(ArrayList<GiveGoodsRecord>) recordList;
+    /*        List<GiveGoodsRecord>   list =
 
             for(int i=0;i<list.size();i++ ){
             	list.get(i).setGoodsname(dao.getById(list.get(i).getGoodsid()).getGoodsname());
             }
-            
-            return (ArrayList<GiveGoodsRecord>) list;
+            */
+            return (ArrayList<GiveGoodsRecord>) recordList;
         } finally {
             HibernateUtil.closeSession();
         }

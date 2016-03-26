@@ -26,6 +26,12 @@
 			type="string" 
 			length="10"
 		/>
+			 <property
+			name="goodsname"
+			column="goodsname" 
+			type="string" 
+			length="100"
+		/>
        <property
 			name="borrow_time"
 			column="borrow_time" 

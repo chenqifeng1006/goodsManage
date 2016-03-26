@@ -80,7 +80,16 @@ public class GiveGoodsRecordAction extends ActionSupport {
         return recordNumber;
     }
 
-    /*业务层对象*/
+    private String goodsname;
+    
+    
+    public String getGoodsname() {
+		return goodsname;
+	}
+	public void setGoodsname(String goodsname) {
+		this.goodsname = goodsname;
+	}
+	/*业务层对象*/
     GiveGoodsRecordDAO dao = new GiveGoodsRecordDAO();
 
 	
@@ -112,46 +121,32 @@ public class GiveGoodsRecordAction extends ActionSupport {
     
     }
     
-/*
-    @SuppressWarnings("deprecation")
-    public String save() {
+    public String query() {
         ActionContext ctx = ActionContext.getContext();
-        
-        try {
-        	BorrowGoodsDAO goodsDao=new BorrowGoodsDAO();
-            goodsDao.update(entity);
-            ctx.put("message",  java.net.URLEncoder.encode("保存成功!"));
-            return "success";
-        } catch (Exception e) {
-            e.printStackTrace();
-            ctx.put("error",  java.net.URLEncoder.encode("保存失败!"));
-            return "error";
-        }
-
-    }
-*/
-   /* public String query() {
         if(currentPage == 0) currentPage = 1;
-        List<BorrowGoods> list = dao.query(currentPage,5,"");
+        List<GiveGoodsRecord> list = dao.query("",goodsname,currentPage,5);
         dao.CalculateTotalPageAndRecordNumber("");
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();
-        ActionContext ctx = ActionContext.getContext();
+
         ctx.put("list",  list);
         ctx.put("totalPage", totalPage);
         ctx.put("recordNumber", recordNumber);
         ctx.put("currentPage", currentPage);
         return "query_view";
-    }*/
-
+    }
+   
+   
     
     public String userQuery() {
+        ActionContext ctx = ActionContext.getContext();
+        String userno=ctx.getSession().get("userno").toString();
         if(currentPage == 0) currentPage = 1;
-        List<GiveGoodsRecord> list = dao.query(currentPage,5,"");
+        List<GiveGoodsRecord> list = dao.query(userno,"",currentPage,5);
         dao.CalculateTotalPageAndRecordNumber("");
         totalPage = dao.getTotalPage();
         recordNumber = dao.getRecordNumber();
-        ActionContext ctx = ActionContext.getContext();
+
         ctx.put("list",  list);
         ctx.put("totalPage", totalPage);
         ctx.put("recordNumber", recordNumber);

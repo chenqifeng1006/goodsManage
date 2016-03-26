@@ -20,6 +20,12 @@
 			type="string" 
 			length="16"
 		/>
+		 <property
+			name="goodsname"
+			column="goodsname" 
+			type="string" 
+			length="100"
+		/>
 			 <property
 			name="username"
 			column="username" 

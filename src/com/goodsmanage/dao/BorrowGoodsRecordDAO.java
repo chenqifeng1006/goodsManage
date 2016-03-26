@@ -55,7 +55,7 @@ public class BorrowGoodsRecordDAO {
     }
 
     /*≤È—Ø–≈œ¢*/
-    public ArrayList<BorrowGoodsRecord> query(int currentPage,int pageSize,String userno) { 
+    public ArrayList<BorrowGoodsRecord> query(int currentPage,int pageSize,String userno,String goodsname) { 
         Session s = null; 
         BorrowGoodsDAO dao = new BorrowGoodsDAO();
         try {
@@ -63,6 +63,9 @@ public class BorrowGoodsRecordDAO {
             String hql = "From BorrowGoodsRecord borrowGoodsRecord where 1=1";
             if(StringUtils.isNotBlank(userno)){
             	hql+="and userno="+userno;
+            }
+            if(StringUtils.isNotBlank(userno)){
+            	hql+="and goodsname like '%"+goodsname+"%'";
             }
 /*            if(null != member && !member.getUserNo().equals("")) hql += " and inputCashTable.member.userNo='" + member.getUserNo() + "'";
             if(null != inputFroms && inputFroms.getInputClassId()!=0) hql += " and inputCashTable.inputFroms.inputClassId=" + inputFroms.getInputClassId();
